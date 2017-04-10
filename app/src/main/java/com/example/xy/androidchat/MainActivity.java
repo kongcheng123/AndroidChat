@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private BadgeItem badge;
     private FragmentOne mFragmentOne;
     private FragmentTwo mFragmentTwo;
+    private OwnFragment ownFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
 //                .setHideOnSelect(true)//当选中状态时消失，非选中状态显示
         ;*/
         //添加选项
-        bottom_navigation_bar.addItem(new BottomNavigationItem(R.mipmap.ic_directions_run_white_24dp, "步行"))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_directions_bike_white_24dp, "骑行").setBadgeItem(badge))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_local_airport_black_24dp, "公交").setInactiveIcon(ContextCompat.getDrawable(this,R.mipmap.ic_directions_bus_white_24dp)))
+        bottom_navigation_bar.addItem(new BottomNavigationItem(R.mipmap.msg, "消息"))
+                .addItem(new BottomNavigationItem(R.mipmap.friend, "好友"))
+                .addItem(new BottomNavigationItem(R.mipmap.me, "我的"))
                 .initialise();//初始化BottomNavigationButton,所有设置需在调用该方法前完成
         bottom_navigation_bar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
             @Override
@@ -79,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
                         transaction.replace(R.id.ll_content, mFragmentTwo);
                         break;
                     case 2:
+                        if (ownFragment == null) {
+                            ownFragment = OwnFragment.newInstance("Second Fragment");
+                        }
+                        transaction.replace(R.id.ll_content, ownFragment);
                         //replaceFragment(new OwnerFragment());
                         break;
                     default:

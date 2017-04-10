@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +19,11 @@ public class FragmentTwo extends Fragment {
     private List<Friend> friendList=new ArrayList<>();
 
     private void initFriend(){
-        for(int i=0;i<4;i++){
-            Friend xy=new Friend("xy",R.mipmap.ic_local_airport_black_24dp);
+        for(int i=0;i<8;i++){
+            Friend xy=new Friend("xy",R.mipmap.ic_launcher);
             friendList.add(xy);
 
-            Friend xy1=new Friend("xy1",R.mipmap.ic_local_airport_black_24dp);
+            Friend xy1=new Friend("xy1",R.mipmap.ic_launcher);
             friendList.add(xy1);
         }
     }
